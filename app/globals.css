@@ -2,20 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer components {
+  .nav__link {
+    @apply relative text-base font-medium w-fit block text-white;
   }
-}
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  .nav__link::after {
+    @apply block absolute h-[3px] bg-yellow-400 w-full scale-x-0 transition duration-300 origin-right;
+    content: '';
+  }
+
+  .nav__link:hover::after {
+    @apply scale-x-100;
+  }
+
+  @layer utilities {
+    .text-bg {
+      background-image: theme('backgroundImage.gradientText');
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent; /* Ensure text is transparent to display gradient */
+    }
+  }
+  .custom-scrollbar::-webkit-scrollbar{
+    width: 10px;
+    height: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track{
+    background: #44028f;
+  }
+  .custom-scrollbar::-webkit-scrollbar.thumb{
+    background: #c277fa;
+    border-radius: 4px;
+  }
 }

@@ -12,6 +12,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      backgroundImage: {
+        gradientText: 'linear-gradient(to right, #8750f7, #ffffff)',
+      },
     },
   },
   plugins: [],
